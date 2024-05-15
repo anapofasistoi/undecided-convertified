@@ -16,7 +16,7 @@ EXPOSE 80
 #expose port from the container
 HEALTHCHECK CMD curl --fail http://localhost:80/_stcore/health
 # optional but good healthcheck to see if something is wrong with the container
-ENTRYPOINT [ "streamlit", "run", "main.py" ]
+ENTRYPOINT [ "streamlit", "run", "main.py", "--server.port=80", "--server.address=0.0.0.0", "--server.maxUploadSize=1024", "--client.toolbarMode=minimal" ]
 # command "streamlit run streamlit_app.py --server.port=80 --server.address=0.0.0.0 --server.maxUploadSize=1024 --client.toolbarMode='minimal' --browser.gatherUsageStats=false
 # quic breakdown of that last command:
 # this command will listen to the port 80 and accept any incoming requests from any interface of the server
