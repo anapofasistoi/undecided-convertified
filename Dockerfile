@@ -8,7 +8,7 @@ curl \
 software-properties-common \
 git
 # update and upgrade to latest software while building the docker file 
-RUN git clone https://github.com/streamlit/streamlit-example.git . 
+RUN git clone https://github.com/anapofasistoi/undecided-convertified.git . 
 # clone the repo to /app
 RUN pip3 install -r requirements.txt
 # install dependecies for main.py
