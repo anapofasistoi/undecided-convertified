@@ -1,4 +1,4 @@
-FROM python:3.10.14-slim
+FROM python:3.12.3-slim
 # use python's 3.10.14 version slim (essentials only)
 WORKDIR /app
 # working directory
@@ -16,8 +16,8 @@ EXPOSE 80
 #expose port from the container
 HEALTHCHECK CMD curl --fail http://localhost:80/_stcore/health
 # optional but good healthcheck to see if something is wrong with the container
-ENTRYPOINT [ "streamlit", "run", "main.py", "--server.port=80", "--server.address=0.0.0.0", "--server.maxUploadSize=1024", "--client.toolbarMode='minimal'" ]
-# command "streamlit run streamlit_app.py --server.port=80 --server.address=0.0.0.0 --server.maxUploadSize=1024 --client.toolbarMode='minimal'
+ENTRYPOINT [ "streamlit", "run", "main.py" ]
+# command "streamlit run streamlit_app.py --server.port=80 --server.address=0.0.0.0 --server.maxUploadSize=1024 --client.toolbarMode='minimal' --browser.gatherUsageStats=false
 # quic breakdown of that last command:
 # this command will listen to the port 80 and accept any incoming requests from any interface of the server
 # also it will give logs such as the problems that will encounter when something go bad
