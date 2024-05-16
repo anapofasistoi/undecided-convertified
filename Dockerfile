@@ -6,7 +6,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 build-essential \
 curl \
 software-properties-common \
-git
+git \
+ffmpeg
 # update and upgrade to latest software while building the docker file 
 RUN git clone https://github.com/anapofasistoi/undecided-convertified.git . 
 # clone the repo to /app
