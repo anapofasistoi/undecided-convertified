@@ -32,7 +32,7 @@ def video_to_audio(video_bytes, type_audio):
 
     return audio_bytes
 
-def test_audio(audio_bytes, type_audio):
+def audio_to_audio(audio_bytes, type_audio):
 
     if type_audio == "mp3":
         encodec="libmp3lame"

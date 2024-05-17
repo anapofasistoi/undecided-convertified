@@ -56,7 +56,7 @@ if uploaded_file != None:
             if extetion == "mp4":
                 music_file = video_to_audio(uploaded_file.getvalue(),file_converted_type)
             else:
-                music_file = test_audio(uploaded_file.getvalue(),file_converted_type)
+                music_file = audio_to_audio(uploaded_file.getvalue(),file_converted_type)
             # convertion to mp3
 
         case "wav":
@@ -64,14 +64,14 @@ if uploaded_file != None:
                 music_file = video_to_audio(uploaded_file.getvalue(),file_converted_type)
 
             else:
-                music_file = test_audio(uploaded_file.getvalue(),file_converted_type)
+                music_file = audio_to_audio(uploaded_file.getvalue(),file_converted_type)
             # convertion to wav
 
         case "flac":
             if extetion == "mp4":
                 music_file = video_to_audio(uploaded_file.getvalue(),file_converted_type)
             else:
-                music_file = test_audio(uploaded_file.getvalue(),file_converted_type)
+                music_file = audio_to_audio(uploaded_file.getvalue(),file_converted_type)
             # convertion to flac
 
     if file_converted_type != None:
