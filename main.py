@@ -7,7 +7,7 @@ with st.popover("tutorial"):
     st.write("1. Upload a file, you can choose between 4 formats (mp4, mp3, wav, flac)")
     st.write("2. Choose the format you want your file to convert to (you cannot convert audio to video for obvious reasons)")
     st.write("3. Press the download button and you are ready to go!")
-    st.write("Important note: Files that contain the character “.” cannot be converted.")
+    st.write("Important note: Files that contain the character “.” before the file extention cannot be converted.")
     st.write("[learn more](url)")
 
 type_of_audio_files = ['.mp3','.wav','.flac','.mp4']
@@ -16,16 +16,16 @@ uploaded_file = st.file_uploader(label="choose a music file", type=type_of_audio
 if uploaded_file != None:
     st.write("filename: ", uploaded_file.name)
 
-    # get the filename and the extention of it so it will automatically show  
+    # get the filename and the extention of it so it will automatically show the available file formats
     filename, extetion = uploaded_file.name.split('.')
 
-    # menu of user to choose casa pegged
+    # menu of user to choose the converted file type
     match extetion:
         case "mp4":
-            # playback feature?
+            # playback feature
             st.video( uploaded_file.read(), format="video/mp4" )
             #conversion of mp4 to ...
-            file_converted_type = st.radio(
+            file_converted_type = st.radio( # shows the user to select only one of the formats
                 "In what format do you want the mp4 file?",
                 ["mp3", "flac", "wav"],
                 index=None)
@@ -49,7 +49,7 @@ if uploaded_file != None:
                 index=None)
 
     if file_converted_type !=  None:
-        filename += "." + file_converted_type
+        filename += "." + file_converted_type # add the extension to the filename for download
 
     match file_converted_type:
         case "mp3":

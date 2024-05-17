@@ -5,7 +5,7 @@ import io
 def video_to_audio(video_bytes, type_audio):
     # Create a new FFmpeg instance pcm_s16le = wav ,libmp3lame = mp3, flac = flac 
 
-    if type_audio == "mp3":
+    if type_audio == "mp3":# select audio encoding type
         encodec="libmp3lame"
     elif type_audio == "wav":
         encodec="pcm_s16le"
@@ -34,7 +34,7 @@ def video_to_audio(video_bytes, type_audio):
 
 def audio_to_audio(audio_bytes, type_audio):
 
-    if type_audio == "mp3":
+    if type_audio == "mp3": # select audio encoding type
         encodec="libmp3lame"
     elif type_audio == "wav":
         encodec="pcm_s16le"
@@ -48,5 +48,10 @@ def audio_to_audio(audio_bytes, type_audio):
         .output("pipe:1", f=type_audio, codec=encodec)
         
     )
+
+    @ffmpeg.on("progress")
+    def on_progress(progress):
+        print(progress)
+
     audio_bytes_out = ffmpeg.execute(audio_bytes)
     return audio_bytes_out
