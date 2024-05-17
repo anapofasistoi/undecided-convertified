@@ -8,7 +8,7 @@ with st.popover("tutorial"):
     st.write("2. Choose the format you want your file to convert to (you cannot convert audio to video for obvious reasons)")
     st.write("3. Press the download button and you are ready to go!")
     st.write("Important note: Files that contain the character “.” before the file extention cannot be converted.")
-    st.write("[learn more](url)")
+    st.write("[learn more](https://www.youtube.com/watch?v=m6S6AGXexCU)")
 
 type_of_audio_files = ['.mp3','.wav','.flac','.mp4']
 uploaded_file = st.file_uploader(label="choose a music file", type=type_of_audio_files)
